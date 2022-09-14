@@ -3,6 +3,10 @@ body {
   border: 3px solid gray;
   padding: 5px;
 }
+button {
+  width: 80px;
+  height: 55px;
+}
 .card {
   width: 125px;
   height: 200px;

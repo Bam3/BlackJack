@@ -47,15 +47,26 @@ const createCard = (card, cardType) => {
 const pickRandomFromArray = (array) => {
   return array[Math.floor(Math.random() * array.length)];
 };
+const checkScore = (score, desiredScore = 21) => {
+  if (score === 21) {
+    return "blackjack";
+  } else if (score <= desiredScore) {
+    return "under";
+  }
+  return "over";
+};
 //Buttons
 const drawCardBtn = document.getElementById("player-draw-card");
 const startGameBtn = document.getElementById("start-game");
+const endGameBtn = document.getElementById("end-game");
+const RestartGameBtn = document.getElementById("restart-game");
 //Tables
 const playersTable = document.getElementById("players-table");
 const computersTable = document.getElementById("computers-table");
 //Players
 const player = new Player();
 const computer = new Player();
+
 //Start Game
 startGameBtn.addEventListener("click", function (e) {
   //Create a player and a computer both have two cards in the begining
@@ -69,18 +80,26 @@ startGameBtn.addEventListener("click", function (e) {
   //Sum both cards and save the result
   player.score = player.sumOfCards;
   computer.score = computer.sumOfCards;
-  console.log(player);
-  console.log(computer);
+  //console.log(player);
+  //console.log(computer);
 });
-
-//Check if we have a winner
-
 //Player draw a card
 drawCardBtn.addEventListener("click", function (e) {
   player.cardsInHeand.push(getCard(cards, 1));
   player.score = player.sumOfCards;
   //Draw cards on the table
   playersTable.append(createCard(player.cardsInHeand.at(-1), cardType));
-  console.log(player);
-  console.log(computer);
+  if (checkScore(player.score) == "blackjack") {
+    console.log("you won!");
+  } else {
+    console.log(player.score);
+  }
+  //console.log(player.score);
+  //console.log(computer);
 });
+//Restart game (reloads the page)
+RestartGameBtn.addEventListener("click", function (e) {
+  window.location.reload();
+});
+//End Game (player ends game)
+endGameBtn.addEventListener("click", function (e) {});
