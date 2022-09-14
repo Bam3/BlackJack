@@ -79,6 +79,8 @@ startGameBtn.addEventListener("click", function (e) {
 drawCardBtn.addEventListener("click", function (e) {
   player.cardsInHeand.push(getCard(cards, 1));
   player.score = player.sumOfCards;
+  //Draw cards on the table
+  playersTable.append(createCard(player.cardsInHeand.at(-1), cardType));
   console.log(player);
   console.log(computer);
 });
