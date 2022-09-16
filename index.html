@@ -5,17 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="apple-touch-icon" sizes="57x57" href="https://deckofcardsapi.com/static/img/favicon/apple-touch-icon-57x57.png">
     <title>Blackjack</title>
   </head>
   <body>
-    <h1>Blackjack</h1>
-    <button id="start-game">Start</button>
-    <button id="player-draw-card">Draw</button>
-    <button id="end-game">End</button>
-    <button id="restart-game">Restart</button>
-    <h3>PLAYER</h3>
+    <h1>BLACKJACK</h1>
+    <div class="buttons">
+      <button id="player-draw-card">DRAW</button>
+      <button id="end-game">END</button>
+      <button id="restart-game">RESTART</button>
+    </div>
+    <h2 id="player">PLAYER</h3>
     <div id="players-table" class="table"></div>
-    <h3>COMPUTER</h3>
+    <h2 id="computer">COMPUTER</h3>
     <div id="computers-table" class="table"></div>
     <style src="style.css"></style>
     <script src="app.js"></script>

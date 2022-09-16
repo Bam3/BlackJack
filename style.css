@@ -4,8 +4,9 @@ body {
   padding: 5px;
 }
 button {
-  width: 80px;
+  width: 120px;
   height: 55px;
+  border: 4px solid rgb(214, 96, 96);
 }
 .card {
   width: 125px;
@@ -17,4 +18,15 @@ button {
   margin-top: 10px;
   margin-bottom: 10px;
   border: 4px solid rgb(217, 179, 179);
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 5px 5px 5px 5px;
+}
+
+h1 {
+  text-align: center;
 }
