@@ -68,6 +68,13 @@ const callWinner = (winner) => {
     h2Computer.innerText = `${h2Computer.innerText} - WINNER! ${computer.score}`;
   }
 };
+const replaceAce = (player) => {
+  let index = player.cardsInHeand.indexOf(11);
+  if (index !== -1) {
+    player.cardsInHeand[index] = 1;
+    player.score = player.sumOfCards;
+  }
+};
 //Buttons
 const drawCardBtn = document.getElementById("player-draw-card");
 const endGameBtn = document.getElementById("end-game");
@@ -75,11 +82,12 @@ const RestartGameBtn = document.getElementById("restart-game");
 //Tables
 const playersTable = document.getElementById("players-table");
 const computersTable = document.getElementById("computers-table");
+//h2
+const h2Player = document.getElementById("player");
+const h2Computer = document.getElementById("computer");
 //Players
 const player = new Player();
-const h2Player = document.getElementById("player");
 const computer = new Player();
-const h2Computer = document.getElementById("computer");
 //Create a player and a computer both have two cards in the beginning
 player.cardsInHeand = getCard(cards, 2);
 computer.cardsInHeand = getCard(cards, 2);
@@ -93,9 +101,7 @@ computer.score = computer.sumOfCards;
 //Check for blackjack
 if (checkScore(player.score) == "blackjack") callWinner("player");
 if (checkScore(player.score) == "over") {
-  let index = player.cardsInHeand.indexOf(11);
-  if (index !== -1) player.cardsInHeand[index] = 1;
-  player.score = player.sumOfCards;
+  replaceAce(player);
 }
 //Player draw a card
 drawCardBtn.addEventListener("click", function (e) {
@@ -127,9 +133,7 @@ endGameBtn.addEventListener("click", function (e) {
     computer.cardsInHeand.push(getCard(cards));
     computer.score = computer.sumOfCards;
     if (checkScore(computer.score) == "over") {
-      let index = computer.cardsInHeand.indexOf(11);
-      if (index !== -1) computer.cardsInHeand[index] = 1;
-      computer.score = computer.sumOfCards;
+      replaceAce(computer);
     }
   }
   //Draw all computer cards on table
