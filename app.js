@@ -15,7 +15,6 @@ class Player {
 }
 //Deck of cards
 const cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
-//const cards = [11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11];
 //type of cards
 const cardType = ["C", "D", "H", "S"];
 //functions
