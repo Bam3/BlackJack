@@ -14,7 +14,8 @@ class Player {
   }
 }
 //Deck of cards
-const cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
+//const cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10];
+const cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11];
 //type of cards
 const cardType = ["C", "D", "H", "S"];
 //functions
@@ -127,6 +128,9 @@ RestartGameBtn.addEventListener("click", function (e) {
 });
 //End Game (player ends game)
 endGameBtn.addEventListener("click", function (e) {
+  if (checkScore(computer.score) == "over") {
+    replaceAce(computer);
+  }
   //Draw cards as long as computers score is less or equal 16
   while (computer.score <= 16) {
     computer.cardsInHeand.push(getCard(cards));
